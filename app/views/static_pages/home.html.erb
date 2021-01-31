@@ -1,17 +1,13 @@
 <%= form_with url: root_path, method: :get do |f| %>
-  <%= f.label :flickr_id %>
-  <%= f.text_field :flickr_id %>
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %>
 
   <%= f.submit 'Get feed' %>
 <% end %>
 
-<% if @person %>
-  <% if @photos.empty? %>
-  <% else %>
-    <% @photos.each do |photo| %>
-      <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
-    <% end %>
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_n.jpg" %>
   <% end %>
-<% else %>
-  <p>User does not exist</p>
 <% end %>

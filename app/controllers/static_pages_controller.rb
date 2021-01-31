@@ -3,10 +3,13 @@
 # Static Pages resource
 class StaticPagesController < ApplicationController
   def home
-    if params[:flickr_id]
-      @person = Flickr.people.find(params[:flickr_id])
-      if @person
-        @photos = @person.public_photos(sizes:true).map(&:medium500!)
+    if params[:user_id]
+      begin
+        flickr = Flickr.new
+        @user_id = params[:user_id]
+        @photos = flickr.photos.search(user_id: params[:user_id])
+      rescue Flickr::FailedResponse => e
+        flash[:alert] = "This id doesn't exist."
       end
     end
   end
