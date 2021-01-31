@@ -1,0 +1,6 @@
+<%= form_with url: root_path, method: :get do |f| %>
+  <%= f.label :flickr_id %>
+  <%= f.text_field :flickr_id %>
+
+  <%= f.submit 'Get feed' %>
+<% end %>
