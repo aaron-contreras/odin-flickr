@@ -4,3 +4,14 @@
 
   <%= f.submit 'Get feed' %>
 <% end %>
+
+<% if @person %>
+  <% if @photos.empty? %>
+  <% else %>
+    <% @photos.each do |photo| %>
+      <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>User does not exist</p>
+<% end %>

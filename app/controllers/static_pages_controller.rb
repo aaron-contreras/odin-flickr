@@ -3,8 +3,11 @@
 # Static Pages resource
 class StaticPagesController < ApplicationController
   def home
-    flickr = Flickr.new
-    debugger
-    list = flickr.photos.getRecent
+    if params[:flickr_id]
+      @person = Flickr.people.find(params[:flickr_id])
+      if @person
+        @photos = @person.public_photos(sizes:true).map(&:medium500!)
+      end
+    end
   end
 end
