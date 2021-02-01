@@ -1,24 +1,20 @@
-# README
+# Odin Flickr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+A project practicing the use of external APIs in my own app.
 
-Things you may want to cover:
+Find out more on [The Odin Project's website](https://www.theodinproject.com/lessons/using-an-api).
 
-* Ruby version
+## Running locally
 
-* System dependencies
+1. Clone this repo and change into the cloned directory
 
-* Configuration
+```
+cd ./odin-flickr
+```
 
-* Database creation
+2. Install dependencies
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ bundle install
+```
