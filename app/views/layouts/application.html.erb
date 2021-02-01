@@ -12,10 +12,28 @@
 
   <body>
     <% flash.each do |type, message| %>
-      <div class="container <%= type %>">
-        <p><%= message %></p>
+      <div class="notification is-warning is-light has-text-centered">
+        <%= message %>
       </div>
     <% end %>
-    <%= yield %>
+
+    <div class="hero is-danger">
+      <div class="hero-body">
+        <p class="title">Odin Flickr</p>
+        <p class="subtitle">Playing around with the Flickr API</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer fixed-footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Flickr API project</strong> by <%= link_to 'Aaron Contreras', url: "https://github.com/aaron-contreras/odin-flickr" %>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

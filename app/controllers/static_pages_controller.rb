@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
         @user_id = params[:user_id]
         @photos = flickr.photos.search(user_id: params[:user_id])
       rescue Flickr::FailedResponse => e
-        flash[:alert] = "This id doesn't exist."
+        flash[:alert] = "Flickr user id #{@user_id} doesn't exist."
       end
     end
   end

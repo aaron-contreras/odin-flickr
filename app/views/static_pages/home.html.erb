@@ -1,13 +1,28 @@
-<%= form_with url: root_path, method: :get do |f| %>
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %>
-
-  <%= f.submit 'Get feed' %>
-<% end %>
+<section class="section">
+  <%= form_with url: root_path, method: :get do |f| %>
+    <div class="field">
+      <%= f.label :user_id, 'Flickr ID', class: 'label' %>
+      <div class="control">
+        <%= f.text_field :user_id, class: 'input is-link', placeholder: '191982866@N04' %>
+      </div>
+    </div>
+  
+    <div class="control">
+      <%= f.button "Get user's feed", class: 'button is-link' %>
+    </div>
+  <% end %>
+</section>
 
 
 <% if @photos %>
-  <% @photos.each do |photo| %>
-    <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_n.jpg" %>
-  <% end %>
+  <section class="section">
+    <div class="columns is-multiline is-mobile">
+      <% @photos.each do |photo| %>
+        <div class="column is-one-third is-flex is-justify-content-center">
+          <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_z.jpg",
+                        class: 'is-square' %>
+        </div>
+      <% end %>
+    </div>
+  </section>
 <% end %>
