@@ -3,7 +3,8 @@
     <div class="field">
       <%= f.label :user_id, 'Flickr ID', class: 'label' %>
       <div class="control">
-        <%= f.text_field :user_id, class: 'input is-link', placeholder: '191982866@N04' %>
+        <%= f.text_field :user_id, class: 'input is-link',
+                         placeholder: '191982866@N04' %>
       </div>
     </div>
   
@@ -18,9 +19,10 @@
   <section class="section">
     <div class="columns is-multiline is-mobile">
       <% @photos.each do |photo| %>
-        <div class="column is-one-third is-flex is-justify-content-center">
-          <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_z.jpg",
-                        class: 'is-square' %>
+        <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+            <figure class="image">
+              <%= image_tag "https://live.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}_z.jpg" %>
+            </figure>
         </div>
       <% end %>
     </div>
